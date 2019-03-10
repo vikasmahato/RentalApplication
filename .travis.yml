@@ -4,8 +4,8 @@ jdk:
 
 
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.m2
+  - rm -fr $HOME/.m2
 
 cache:
   directories:
