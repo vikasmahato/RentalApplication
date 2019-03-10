@@ -15,7 +15,7 @@ cache:
 #  - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
 
 script:
-  - ./mvnw clean install -B
+  - mvn clean install
 
 #after_success:
 #  - bash <(curl -s https://codecov.io/bash)
