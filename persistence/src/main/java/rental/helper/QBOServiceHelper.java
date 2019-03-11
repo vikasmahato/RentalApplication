@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import factory.OAuth2PlatformClientFactory;
+import rental.factory.QuickbooksBackendFactory;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ import com.intuit.oauth2.exception.OAuthException;
 @Service
 public class QBOServiceHelper {
     @Autowired
-    OAuth2PlatformClientFactory factory;
+    QuickbooksBackendFactory factory;
 
     private static final Logger logger = Logger.getLogger(QBOServiceHelper.class);
 

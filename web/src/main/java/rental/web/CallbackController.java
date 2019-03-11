@@ -3,17 +3,18 @@ package rental.web;
 import com.intuit.oauth2.client.OAuth2PlatformClient;
 import com.intuit.oauth2.data.BearerTokenResponse;
 import com.intuit.oauth2.exception.OAuthException;
-import factory.OAuth2PlatformClientFactory;
+import rental.factory.QuickbooksBackendFactory;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 public class CallbackController {
-    @Autowired
-    OAuth2PlatformClientFactory factory;
+    @Inject
+    QuickbooksBackendFactory factory;
 
     private static final Logger logger = Logger.getLogger(CallbackController.class);
 

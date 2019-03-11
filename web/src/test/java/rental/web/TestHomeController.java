@@ -1,6 +1,6 @@
 package rental.web;
 
-import factory.OAuth2PlatformClientFactory;
+import rental.factory.QuickbooksBackendFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class TestHomeController {
     @Autowired
-    OAuth2PlatformClientFactory factory;
+    QuickbooksBackendFactory factory;
 
     @Autowired
     HomeController homeController;
