@@ -1,25 +1,31 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+
+// Components
+import './components'
+
+// Plugins
+import './plugins'
+
+// Sync router with store
+import { sync } from 'vuex-router-sync'
+
+// Application imports
 import App from './App'
+import i18n from '@/i18n'
+import router from '@/router'
+import store from '@/store'
+
+// Sync store with router
+sync(store, router)
 
 Vue.config.productionTip = false
 
-import VueLogger from 'vuejs-logger';
-
-const options = {
-  isEnabled: true,
-  logLevel : 'debug',
-  stringifyArguments : false,
-  showLogLevel : true,
-  showMethodName : false,
-  separator: '|',
-  showConsoleColors: true
-};
-
-Vue.use(VueLogger, options);
-
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
-});
+  i18n,
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

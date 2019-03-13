@@ -2,7 +2,7 @@ package rental.persistence;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import rental.domain.Customer;
+import rental.model.Customer;
 
 import java.util.ArrayList;
 import java.util.List;

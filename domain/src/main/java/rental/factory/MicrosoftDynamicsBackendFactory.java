@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.annotation.PostConstruct;
 
@@ -13,8 +12,11 @@ import javax.annotation.PostConstruct;
 @PropertySource(value="classpath:/application.properties", ignoreResourceNotFound=true)
 public class MicrosoftDynamicsBackendFactory implements AccountingBackendFactory {
 
-    @Inject
-    Environment springEnvironment;
+    private Environment springEnvironment;
+
+    public MicrosoftDynamicsBackendFactory(Environment springEnvironment) {
+        this.springEnvironment = springEnvironment;
+    }
 
     @PostConstruct
     @Override

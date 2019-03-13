@@ -1,9 +1,8 @@
 package rental.web;
 
-import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import rental.domain.Customer;
+import rental.model.Customer;
 import rental.persistence.CustomerRepository;
 
 import java.util.List;

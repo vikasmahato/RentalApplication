@@ -16,11 +16,14 @@ import javax.inject.Named;
 @PropertySource(value="classpath:/application.properties", ignoreResourceNotFound=true)
 public class QuickbooksBackendFactory implements AccountingBackendFactory {
 
-    @Inject
-    Environment springEnvironment;
+    private Environment springEnvironment;
 
-    OAuth2PlatformClient client;
-    OAuth2Config oauth2Config;
+    private OAuth2PlatformClient client;
+    private OAuth2Config oauth2Config;
+
+    public QuickbooksBackendFactory(Environment springEnvironment) {
+        this.springEnvironment = springEnvironment;
+    }
 
     @PostConstruct
     @Override

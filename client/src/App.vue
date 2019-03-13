@@ -1,30 +1,20 @@
 <template>
-  <div id="app">
-    <Customers />
-    <footer class="info">
-      <p>Modified for this tutorial by Vikas</p>
-    </footer>
-  </div>
+  <v-app>
+    <core-filter />
+
+    <core-toolbar />
+
+    <core-drawer />
+
+    <core-view />
+  </v-app>
 </template>
 
-<script>
-  import Customers from './components/Customers'
-  // app Vue instance
-  const app = {
-    name: 'app',
-    components: {
-      Customers
-    },
-    // app initial state
-    data: () => {
-      return {
-      }
-    }
-  }
+<style lang="scss">
+@import '@/styles/index.scss';
 
-  export default app
-</script>
-
-<style>
-  [v-cloak] { display: none; }
+/* Remove in 1.2 */
+.v-datatable thead th.column.sortable i {
+  vertical-align: unset;
+}
 </style>

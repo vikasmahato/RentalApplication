@@ -1,4 +1,4 @@
-package rental.domain;
+package rental.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
