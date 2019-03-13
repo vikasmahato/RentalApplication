@@ -41,7 +41,7 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <includes>
-                        <include>rental.web</include>
+                        <include>rental</include>
                     </includes>
                 </configuration>
             </plugin>
