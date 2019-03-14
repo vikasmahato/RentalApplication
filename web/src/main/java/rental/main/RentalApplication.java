@@ -1,4 +1,4 @@
-package rental.web;
+package rental.main;
 
 import constants.ApplicationConstants;
 import org.apache.log4j.Logger;
@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -19,6 +20,7 @@ import rental.factory.AccountingBackendFactory;
 import rental.factory.BackendFactory;
 import rental.factory.MicrosoftDynamicsBackendFactory;
 import rental.factory.QuickbooksBackendFactory;
+import rental.web.HomeController;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collections;

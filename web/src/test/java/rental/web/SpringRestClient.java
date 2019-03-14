@@ -6,17 +6,24 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
+import org.junit.runner.RunWith;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
+import rental.main.RentalApplication;
 import rental.model.AuthTokenInfo;
 import rental.model.User;
 
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = RentalApplication.class)
+@WebAppConfiguration
 public class SpringRestClient {
  
     public static final String REST_SERVICE_URI = "http://localhost:8080/SpringSecurityOAuth2";
