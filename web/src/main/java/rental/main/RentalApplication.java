@@ -12,7 +12,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -28,7 +27,7 @@ import java.util.Collections;
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = {"rental"})
 @EntityScan(basePackages = {"rental"})
-@ComponentScan(basePackages = {"rental"})
+@ComponentScan(basePackages = {"rental"}) //, excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class
 public class RentalApplication {
 
     private final Environment springEnvironment;

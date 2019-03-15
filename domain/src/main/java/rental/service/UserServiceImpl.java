@@ -1,82 +1,37 @@
 package rental.service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-
 import org.springframework.stereotype.Service;
 import rental.model.User;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
-@Service("userService")
-public class UserServiceImpl implements UserService{
-	
-	private static final AtomicLong counter = new AtomicLong();
-	
-	private static List<User> users;
-	
-	static{
-		users= populateDummyUsers();
-	}
+import static java.util.Optional.ofNullable;
 
-	public List<User> findAllUsers() {
-		return users;
-	}
-	
-	public User findById(long id) {
-		for(User user : users){
-			if(user.getId() == id){
-				return user;
-			}
-		}
-		return null;
-	}
-	
-	public User findByName(String name) {
-		for(User user : users){
-			if(user.getName().equalsIgnoreCase(name)){
-				return user;
-			}
-		}
-		return null;
-	}
-	
-	public void saveUser(User user) {
-		user.setId(counter.incrementAndGet());
-		users.add(user);
-	}
+@Service
+public class UserServiceImpl implements IUserService {
 
-	public void updateUser(User user) {
-		int index = users.indexOf(user);
-		users.set(index, user);
-	}
+    Map<String, User> users = new HashMap<>();
 
-	public void deleteUserById(long id) {
-		
-		for (Iterator<User> iterator = users.iterator(); iterator.hasNext(); ) {
-		    User user = iterator.next();
-		    if (user.getId() == id) {
-		        iterator.remove();
-		    }
-		}
-	}
+    @Override
+    public User save(final User user) {
+        return users.put(user.getId(), user);
+    }
 
-	public boolean isUserExist(User user) {
-		return findByName(user.getName())!=null;
-	}
-	
-	public void deleteAllUsers(){
-		users.clear();
-	}
+    @Override
+    public Optional<User> find(final String id) {
+        return ofNullable(users.get(id));
+    }
 
-	private static List<User> populateDummyUsers(){
-		List<User> users = new ArrayList<User>();
-		users.add(new User(counter.incrementAndGet(),"Dev",30, 70000));
-		users.add(new User(counter.incrementAndGet(),"Ankit",40, 50000));
-		users.add(new User(counter.incrementAndGet(),"Rahul",45, 30000));
-		users.add(new User(counter.incrementAndGet(),"Akshay",50, 40000));
-		return users;
-	}
+    @Override
+    public Optional<User> findByUsername(final String username) {
+        return users
+                .values()
+                .stream()
+                .filter(u -> Objects.equals(username, u.getUsername()))
+                .findFirst();
+    }
 
 }
